@@ -1,0 +1,14 @@
+<div [formGroup]="parentForm!">
+  <label class="radio-label-padding">{{ labelTxt }}</label>
+
+  <mat-checkbox
+    [formControlName]="fieldName"
+    (change)="change($event)"
+    [disableRipple]="true"
+  ></mat-checkbox>
+  <ng-container *ngFor="let validation of validations" ngProjectAs="mat-error">
+    <mat-error *ngIf="parentForm?.get(fieldName)?.hasError(validation.name)">
+      {{ validation.message }}</mat-error
+    >
+  </ng-container>
+</div>

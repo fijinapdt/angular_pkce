@@ -1,0 +1,15 @@
+mat-label {
+  display: block;
+}
+
+// ::ng-deep .mat-mdc-text-field-wrapper {
+//   padding-left: 1px !important;
+//   padding-top: 5px !important;
+// }
+
+mat-error {
+  ::ng-deep .mat-form-field-wrapper {
+    padding-left: 0px !important;
+    border-style: solid !important;
+  }
+}

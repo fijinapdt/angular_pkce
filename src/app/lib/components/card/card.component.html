@@ -1,0 +1,13 @@
+<mat-card [ngClass]="'custom-card'">
+  <div *ngIf="header" class="custom-card-header">
+    <div class="custom-card-header-title">
+      <span class="custom-card-header-title-txt">{{ title }} </span>
+    </div>
+    <ng-container *ngIf="collapsable">
+      <span class="{{ expansionClass }}" (click)="toggle()"></span>
+    </ng-container>
+  </div>
+  <mat-card-content [ngClass]="bodyClass">
+    <ng-content></ng-content>
+  </mat-card-content>
+</mat-card>

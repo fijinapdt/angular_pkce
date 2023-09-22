@@ -1,0 +1,16 @@
+<div [formGroup]="parentForm!">
+  <mat-label>{{ labelTxt }}</mat-label>
+  <mat-slide-toggle
+    [formControlName]="fieldName"
+    [checked]="checked"
+    (change)="toggled($event)"
+    [ngClass]="slideClass"
+  >
+    {{ slideTxt }}
+  </mat-slide-toggle>
+  <ng-container *ngFor="let validation of validations" ngProjectAs="mat-error">
+    <mat-error *ngIf="parentForm?.get(fieldName)?.hasError(validation.name)">
+      {{ validation.message }}</mat-error
+    >
+  </ng-container>
+</div>

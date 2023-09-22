@@ -1,0 +1,52 @@
+<mat-label>{{ labelTxt }}</mat-label>
+<mat-form-field
+  appearance="outline"
+  [formGroup]="parentForm!"
+  class="form-filed"
+>
+  <!-- <mat-icon *ngIf="showIcon" matPrefix>{{ prefixIcon }}</mat-icon> -->
+  <mat-select
+    [placeholder]="placeHolder"
+    [formControlName]="fieldName"
+    (valueChange)="change($event)"
+    (closed)="selectClosed($event)"
+    (opened)="initOpen($event)"
+    [multiple]="multiple"
+  >
+    <ng-container *ngIf="multiple === true">
+      <div class="select-div">
+        <div class="selec-chx">
+          <mat-checkbox
+            (change)="chkChange($event)"
+            [disabled]="chkDisabled"
+          ></mat-checkbox>
+        </div>
+        <div class="selec-txt">
+          <input
+            matInput
+            autocomplete="off"
+            class="select-input-text"
+            (keyup)="filterData($event)"
+            id="app-select-serach"
+            (keydown)="keypress($event)"
+            placeholder="search"
+            (blur)="onBlur($event)"
+          />
+        </div>
+      </div>
+    </ng-container>
+    <mat-option
+      *ngFor="let item of items"
+      [style.display]="item.display"
+      [value]="item.value"
+      (click)="emitItems(item)"
+    >
+      {{ item.label }}
+    </mat-option>
+  </mat-select>
+  <ng-container *ngFor="let validation of validations" ngProjectAs="mat-error">
+    <mat-error *ngIf="parentForm?.get(fieldName)?.hasError(validation.name)">
+      {{ validation.message }}
+    </mat-error>
+  </ng-container>
+</mat-form-field>

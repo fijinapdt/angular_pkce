@@ -1,0 +1,24 @@
+// @import "../../../../styles/base.scss";
+
+.content-container {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  display: flex;
+  align-items: center;
+  .module-name {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.685rem;
+    color: red;
+    font-family: "DTFont_Bold";
+  }
+  .bread-crumb-service-divider {
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+.bread-crumb-divider {
+  border: 1px solid black;
+  width: 100%;
+}

@@ -1,0 +1,11 @@
+<div class="confirm-page">
+  <div class="confirm-icon">
+    <mat-icon [ngClass]="getStyle()" class="icon">{{ getIcon() }}</mat-icon>
+  </div>
+  <div class="confirm-head">
+    <p class="{{ getHeaderStyle() }}">{{ header_txt }}</p>
+  </div>
+  <div class="confirm-content">
+    <ng-content></ng-content>
+  </div>
+</div>

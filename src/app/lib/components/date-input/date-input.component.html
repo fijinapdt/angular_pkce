@@ -1,0 +1,35 @@
+<mat-label>{{ label | translate }}</mat-label>
+
+<mat-form-field appearance="outline" [formGroup]="parentForm!">
+  <input
+    matInput
+    [matDatepicker]="picker"
+    [formControlName]="fieldName"
+    [placeholder]="placeHolder"
+    autocomplete="off"
+    (change)="change($event)"
+    (focus)="picker.open()"
+    #f
+  />
+  <mat-icon
+    matPrefix
+    (click)="picker.open()"
+    style="cursor: pointer; color: #777"
+    >today</mat-icon
+  >
+  <mat-datepicker [panelClass]="'datePicker'" #picker></mat-datepicker>
+  <button
+    *ngIf="f.value"
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="clear(f, $event)"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  <ng-container *ngFor="let validation of validations" ngProjectAs="mat-error">
+    <mat-error *ngIf="parentForm?.get(fieldName)?.hasError(validation.name)">
+      {{ validation.message }}</mat-error
+    >
+  </ng-container>
+</mat-form-field>

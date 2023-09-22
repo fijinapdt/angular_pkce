@@ -1,0 +1,27 @@
+<mat-label>{{ labelTxt | translate }}</mat-label>
+<mat-form-field appearance="outline" [formGroup]="parentForm!">
+  <!-- <mat-icon *ngIf="showIcon" [ngClass]="'txtareaicon'" matPrefix>{{
+    prefixIcon
+  }}</mat-icon> -->
+  <textarea
+    matInput
+    [placeholder]="placeHolder"
+    [formControlName]="fieldName"
+    (change)="change($event)"
+    #f
+  ></textarea>
+  <button
+    *ngIf="f.value"
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="clear(f, $event)"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  <ng-container *ngFor="let validation of validations" ngProjectAs="mat-error">
+    <mat-error *ngIf="parentForm?.get(fieldName)?.hasError(validation.name)">
+      {{ validation.message }}
+    </mat-error>
+  </ng-container>
+</mat-form-field>

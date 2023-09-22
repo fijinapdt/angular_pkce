@@ -1,0 +1,14 @@
+{
+  "WELCOME": "Welcome to our application!",
+  "WELCOME2": "In Sub component",
+  "FName": "First Name",
+  "common": {
+    "submit": "Submit"
+  },
+  "main": {
+    "address": "Main Address",
+    "tel": "Telephone Number",
+    "confirm": "Confirm",
+    "alert": "Alert"
+  }
+}

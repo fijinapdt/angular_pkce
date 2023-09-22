@@ -1,0 +1,91 @@
+@import "@angular/material/theming";
+@import "dt-palette.scss";
+@import "fonts";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$my-theme-primary: mat-palette($dt-primary);
+$my-theme-accent: mat-palette($dt-secondary, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$my-theme-warn: mat-palette($dt-danger);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$my-app-theme: mat-light-theme(
+  $my-theme-primary,
+  $my-theme-accent,
+  $my-theme-warn
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($my-app-theme);
+:root {
+  font-size: $font_size;
+  font-family: "DTFont", Arial, Helvetica, sans-serif !important;
+  --grey: #bdbdbd;
+}
+
+.font-family-bold {
+  font-family: "DTFont_Bold", Arial, Helvetica, sans-serif;
+}
+.h1_bold {
+  @extend .font-family-bold;
+  font-size: 40px;
+  line-height: 60;
+}
+.h2_bold {
+  @extend .font-family-bold;
+  font-size: 30px;
+  line-height: 45;
+}
+
+.h3_bold {
+  @extend .font-family-bold;
+  font-size: 26px;
+  line-height: 39;
+}
+
+.h4_bold {
+  @extend .font-family-bold;
+  font-size: 24px;
+  line-height: 36;
+}
+.h5_bold {
+  @extend .font-family-bold;
+  font-size: 18px;
+  line-height: 27;
+}
+.bold-14 {
+  @extend .font-family-bold;
+  font-size: 14px;
+  line-height: 21;
+}
+
+.bold-12 {
+  @extend .font-family-bold;
+  font-size: 12px;
+  line-height: 18;
+}
+input {
+  border: 1px solid var(--grey);
+}
+mat-label {
+  display: block;
+  color: #0e1b3d;
+  line-height: 25px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+mat-form-field {
+  width: 100%;
+}

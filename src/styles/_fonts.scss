@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "DTFont";
+  src: url("../assets/fonts/DubaiW23-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "DTFont_Bold";
+  src: url("../assets/fonts/DubaiW23-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "DTFont_Light";
+  src: url("../assets/fonts/DubaiW23-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "DTFont_Medium";
+  src: url("../assets/fonts/DubaiW23-Medium.woff2") format("woff2");
+}
+
+$font_size: 16px;

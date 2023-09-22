@@ -1,0 +1,36 @@
+// @import "../../../../styles/base.scss";
+.confirm-page {
+  background-image: url("../../../../assets/images/MessageBlockBg.svg");
+  padding: 40px 20px 20px 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  .confirm-icon {
+    padding: 20px 0px;
+    .icon {
+      font-size: 75px;
+      overflow: visible;
+      transform: translateX(-25px);
+    }
+    .success-icon {
+    }
+  }
+  .confirm-head {
+    .confirm-header-text {
+      font-size: 26px;
+      font-weight: 700;
+    }
+  }
+  .color-success {
+    color: #0e1b3d;
+  }
+
+  .color-green {
+    color: #14c9a9;
+  }
+  .color-red,
+  .color-fail {
+    color: #be0f0f;
+  }
+}

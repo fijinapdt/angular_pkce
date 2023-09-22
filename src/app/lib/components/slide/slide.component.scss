@@ -1,0 +1,24 @@
+mat-label.static-label {
+  font-size: 12px !important;
+  color: rgba(0, 0, 0, 0.46);
+  margin-top: -2px;
+  display: block;
+  margin-bottom: 13px;
+}
+.slideClass-true .mat-slide-toggle-bar {
+  background-color: green !important;
+}
+.slideClass-true .mat-ripple-element {
+  background-color: black !important;
+}
+
+.slideClass-true .mat-slide-toggle-thumb {
+  background-color: #f3f3f3 !important;
+}
+::ng-deep .mdc-switch:enabled .mdc-switch__track::after {
+  background-color: #1360d2 !important;
+}
+
+::ng-deep mdc-switch mdc-switch--unselected {
+  background-color: #b5bfd8;
+}

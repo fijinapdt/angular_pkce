@@ -1,0 +1,38 @@
+<mat-label>{{ labelTxt }}</mat-label>
+<mat-form-field
+  [ngClass]="formElementBackGround"
+  [formGroup]="parentForm!"
+  class="form-field"
+  appearance="outline"
+>
+  <!-- <mat-icon *ngIf="showIcon" matPrefix>{{ prefixIcon }}</mat-icon> -->
+  <input
+    matInput
+    [placeholder]="placeHolder"
+    class="text-field"
+    [formControlName]="fieldName"
+    matTooltip="{{ toolTip }}"
+    [matTooltipPosition]="'below'"
+    [type]="fieldType"
+    numbersOnly
+    [apply]="numbersOnly"
+    autocomplete="off"
+    (change)="change($event)"
+    (keydown)="onKeydown($event)"
+    #f
+  />
+  <button
+    *ngIf="f.value"
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="clear(f, $event)"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  <ng-container *ngFor="let validation of validations" ngProjectAs="mat-error">
+    <mat-error *ngIf="parentForm?.get(fieldName)?.hasError(validation.name)">
+      {{ validation.message }}</mat-error
+    >
+  </ng-container>
+</mat-form-field>

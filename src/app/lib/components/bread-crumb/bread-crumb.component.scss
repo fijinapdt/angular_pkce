@@ -1,0 +1,25 @@
+.breadcrumb {
+  list-style: none;
+  overflow: hidden;
+  font-size: 14px;
+  background-color: inherit;
+  color: #656565;
+}
+
+.breadcrumb a {
+  color: inherit;
+}
+.breadcrumb li {
+  float: left;
+  padding-right: 20px;
+}
+
+.bread-crumb-card {
+  background-color: #fff;
+  padding: 1px;
+}
+
+li.active-crumb {
+  color: #e0504b;
+  font-weight: bold;
+}

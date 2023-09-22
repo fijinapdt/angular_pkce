@@ -1,0 +1,11 @@
+<app-dialog
+  [title]="title"
+  [ok]="ok"
+  [cancel]="true"
+  [okTxt]="okTxt"
+  [cancelTxt]="cancelTxt"
+  (clickEvent)="close($event)"
+  [dialogType]="getDialogType()"
+>
+  {{ message }}</app-dialog
+>

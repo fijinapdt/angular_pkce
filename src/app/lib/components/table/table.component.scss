@@ -1,0 +1,162 @@
+.table-wrapper {
+  .table-wrapper-inner {
+    // max-height: 400px;
+    overflow-x: auto;
+  }
+  width: 100%;
+  margin: auto;
+  overflow-x: auto;
+  margin-top: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+  position: relative;
+  .overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.43);
+  }
+  mat-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.dt-table {
+  width: 100%;
+  table-layout: fixed;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  background-color: #e4e4e426;
+  thead {
+    // background-color: #696f83;
+    color: #ffff;
+
+    tr {
+      position: sticky;
+      top: 0;
+      background-color: #696f83;
+
+      th {
+        .th-colum-txt {
+          display: flex;
+          padding: 10px;
+          align-items: center;
+          word-break: break-all;
+          // justify-content: center;
+          .sort-icons {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            flex-direction: column;
+            mat-icon {
+              cursor: pointer;
+            }
+            .mat-up {
+              position: absolute;
+              top: 0px;
+            }
+            .mat-down {
+              position: absolute;
+              top: 10px;
+            }
+
+            .sort-clicked {
+              background-color: red;
+            }
+          }
+          .table-sort-icon {
+            /* Default styles for the icons */
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+          }
+
+          .table-sort-icon.emphasized {
+            /* Emphasized style */
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      padding: 20px 0 20px 0;
+      &:hover {
+        box-shadow: 0px 2px 6px 0px rgba(152, 162, 179, 0.25),
+          0px 10px 20px 0px rgba(152, 162, 179, 0.15);
+        background-color: #efefef;
+      }
+      td {
+        padding: 15px 10px 15px 10px;
+        .action-icon {
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .table-action-icon {
+          cursor: pointer;
+        }
+        .cell-content {
+          color: #0e1b3d;
+          font-weight: 400;
+
+          .error {
+            padding: 5px 10px 5px 10px;
+            border-style: solid;
+            color: red;
+            border-color: #be0f0f;
+          }
+          .warn {
+            padding: 5px 10px 5px 10px;
+            border-style: solid;
+            border-color: #f59a10;
+            color: #f59a10;
+          }
+          .info {
+            padding: 5px 10px 5px 10px;
+            border-style: solid;
+            border-color: #14c9a9;
+            color: #14c9a9;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .dt-table {
+    thead {
+      display: none; /* Hide headers */
+      padding: 0px !important;
+    }
+    tr {
+      margin-bottom: 0.625em;
+      display: block;
+      border: 1px solid #ddd;
+      padding: 0px !important;
+    }
+    td {
+      display: block; /* Stack tds vertically */
+      position: relative;
+      padding-top: 0px !important; /* Make space for the pseudo element */
+      padding-bottom: 10px !important;
+      padding-right: 0px !important;
+      padding-left: 50% !important;
+    }
+    td::before {
+      position: absolute;
+      top: 0;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      content: attr(data-label); /* Use a data-label attribute for the label */
+      display: block;
+      text-align: right;
+      border-right: 1px solid #ddd;
+    }
+  }
+}

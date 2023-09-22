@@ -1,0 +1,21 @@
+<div [class]="cssClass" class="notfn-bar">
+  <div class="notfn-icon">
+    <strong
+      ><mat-icon>{{ icon }}</mat-icon></strong
+    >
+  </div>
+  <div class="notfn-message">
+    <ul>
+      <ng-container *ngFor="let m of messages">
+        <li
+          [innerHtml]="m.text | sanitizeHtml"
+          class="mb-1"
+          (click)="handleClick(m.text)"
+        ></li>
+      </ng-container>
+    </ul>
+  </div>
+  <div class="notfn-close">
+    <strong><mat-icon (click)="close()">close</mat-icon></strong>
+  </div>
+</div>

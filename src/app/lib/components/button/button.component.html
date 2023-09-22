@@ -1,0 +1,21 @@
+<ng-container *ngIf="!iconButton">
+  <button
+    [type]="buttonType"
+    mat-raised-button
+    [color]="color"
+    [ngClass]="btnClass"
+    class="default-button-class"
+    [attr.mat-icon-button]="iconButton"
+    (click)="clicked()"
+    [disabled]="buttonClicked"
+  >
+    <mat-icon *ngIf="icon" [ngClass]="send">{{ icon }}</mat-icon>
+    <span class="spinner-border spinner-border-sm" *ngIf="buttonClicked"></span>
+    <span *ngIf="!iconButton"> {{ buttonName | translate }} </span>
+  </button>
+</ng-container>
+<ng-container *ngIf="iconButton">
+  <button mat-fab>
+    <mat-icon>{{ icon }}</mat-icon>
+  </button>
+</ng-container>

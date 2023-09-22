@@ -1,0 +1,8 @@
+<div [formGroup]="parentForm!">
+  <label class="radio-label-padding">{{ labelTxt }}:</label>
+  <mat-radio-group [formControlName]="fieldName">
+    <mat-radio-button *ngFor="let item of options" [value]="item.value">
+      {{ item.label }}</mat-radio-button
+    >
+  </mat-radio-group>
+</div>

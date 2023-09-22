@@ -1,0 +1,8 @@
+<h1>{{ "WELCOME2" | translate }}</h1>
+
+<form [formGroup]="landingForm">
+  <mat-form-field appearance="fill">
+    <input matInput formControlName="textField" />
+  </mat-form-field>
+  <span>{{ getData() }}</span>
+</form>

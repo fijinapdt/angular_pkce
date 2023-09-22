@@ -1,0 +1,48 @@
+.custom-card {
+  padding: 0px;
+  margin-top: 10px;
+}
+
+.custom-card .custom-card-header-title {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eaeded;
+  background-color: #fafafa;
+  font-size: 1.25rem;
+  font-weigth: 550;
+  color: rgb(22, 25, 31);
+}
+.custom-card .custom-card-content {
+  padding: 2rem;
+}
+
+.custom-card .custom-card-content-collapse {
+  padding: 0rem;
+  height: 0px;
+  visibility: hidden;
+}
+
+.custom-card .expansion-indicator:after {
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  content: "";
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+span.expansion-indicator {
+  position: absolute;
+  right: 2em;
+  top: 1em;
+}
+
+.transform-45 {
+}
+.transform-225 {
+  transform: rotate(180deg);
+}
