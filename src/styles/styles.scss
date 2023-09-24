@@ -1,6 +1,7 @@
 @import "@angular/material/theming";
 @import "dt-palette.scss";
 @import "fonts";
+@import "colors";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -28,10 +29,12 @@ $my-app-theme: mat-light-theme(
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($my-app-theme);
-:root {
+:root,
+html,
+body {
   font-size: $font_size;
   font-family: "DTFont", Arial, Helvetica, sans-serif !important;
-  --grey: #bdbdbd;
+  background-color: $background;
 }
 
 .font-family-bold {
@@ -76,11 +79,11 @@ $my-app-theme: mat-light-theme(
   line-height: 18;
 }
 input {
-  border: 1px solid var(--grey);
+  border: 1px solid $border;
 }
 mat-label {
   display: block;
-  color: #0e1b3d;
+  color: $label;
   line-height: 25px;
   font-weight: 400;
   margin-bottom: 5px;

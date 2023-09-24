@@ -1,8 +1,4 @@
-<section
-  [@fadeInOut]="o.isActivated ? o.activatedRoute : ''"
-  class="container top-container"
->
-  <notification-bar></notification-bar>
+<section [@fadeInOut]="o.isActivated ? o.activatedRoute : ''" class="container">
   <main class="container">
     <router-outlet #o="outlet"></router-outlet>
   </main>

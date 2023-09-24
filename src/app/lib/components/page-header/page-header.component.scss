@@ -1,13 +1,15 @@
-// @import "../../../../styles/base.scss";
+@import "colors";
 
 .page-header {
+  margin-bottom: 20px;
   .page-header-name {
-    font-weight: 500;
-    font-size: 1.625rem;
+    font-weight: 700;
+    font-size: 1.875rem;
     line-height: 2.75rem;
+    color: $pageheader;
   }
   .page-header-under-line {
-    width: 7.125rem;
-    border: 2px solid;
+    width: 100%;
+    border: 1px solid;
   }
 }

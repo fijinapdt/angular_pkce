@@ -41,7 +41,7 @@ export class FileuploadComponent
   @Input() defaultLoaded!: boolean;
   @Input() defaultFileName!: string;
   @Input() defaultFileId!: string;
-  @Input() labelPos = 'T';
+  @Input() labelPos: 'T' | 'B' = 'T';
   filesAdded: boolean = false;
   @ViewChild('fileInput') fileInput!: ElementRef;
 

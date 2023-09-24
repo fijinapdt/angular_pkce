@@ -1,220 +1,219 @@
-<div class="container app-container">
-  <app-card [header]="true" [title]="'Main Title'">
-    <form [formGroup]="myForm">
-      <div class="row">
-        <div class="col-sm">
-          <app-text-input
-            [toolTip]="'My Tool Tip'"
-            [prefixIcon]="'description'"
-            [parentForm]="myForm"
-            [label]="'First Name'"
-            [placeHolder]="'First Name'"
-            [showIcon]="false"
-            [fieldName]="'firstName'"
-            [fieldType]="'text'"
-            [validations]="firstNameValidations"
-            [fb]="formBuilder"
-            (outputEvent)="textOuput($event)"
-          ></app-text-input>
-        </div>
-        <div class="col-sm">
-          <app-text-input
-            [prefixIcon]="'description'"
-            [parentForm]="myForm"
-            [label]="'Email'"
-            [placeHolder]="'Email'"
-            [backgroundColor]="1"
-            [fieldName]="'email'"
-            [fieldType]="'email'"
-            [validations]=""
-            [fb]="formBuilder"
-          >
-          </app-text-input>
-        </div>
+<app-page>
+  <form [formGroup]="myForm">
+    <div class="row">
+      <div class="col-sm">
+        <app-text-input
+          [toolTip]="'My Tool Tip'"
+          [prefixIcon]="'description'"
+          [parentForm]="myForm"
+          [label]="'First Name'"
+          [placeHolder]="'First Name'"
+          [showIcon]="false"
+          [fieldName]="'firstName'"
+          [fieldType]="'text'"
+          [validations]="firstNameValidations"
+          [fb]="formBuilder"
+          (outputEvent)="textOuput($event)"
+        ></app-text-input>
       </div>
-      <div class="row">
-        <div class="col-sm">
-          <app-select
-            [prefixIcon]="'description'"
-            [fieldName]="'selectItem'"
-            [label]="'Select'"
-            [items]="selectItems"
-            [parentForm]="myForm"
-            [fb]="formBuilder"
-          >
-          </app-select>
-        </div>
-        <div class="col-sm">
-          <app-date-input
-            [prefixIcon]="'calendar_today'"
-            [parentForm]="myForm"
-            [label]="'Date'"
-            [placeHolder]="'Enter Date'"
-            [fieldName]="'dateInput'"
-            [validations]=""
-            [fb]="formBuilder"
-          >
-          </app-date-input>
-        </div>
+      <div class="col-sm">
+        <app-text-input
+          [prefixIcon]="'description'"
+          [parentForm]="myForm"
+          [label]="'Email'"
+          [placeHolder]="'Email'"
+          [backgroundColor]="1"
+          [fieldName]="'email'"
+          [fieldType]="'email'"
+          [validations]=""
+          [fb]="formBuilder"
+        >
+        </app-text-input>
       </div>
-      <div class="row">
-        <div class="col-sm">
-          <app-select
-            [fieldName]="'multiSelectItem'"
-            [label]="'Multi-Select'"
-            [items]="selectItems"
-            [parentForm]="myForm"
-            [fb]="formBuilder"
-            [multiple]="true"
-            #sel1
-          >
-          </app-select>
-        </div>
-        <div class="col-sm">
-          <app-slide
-            [label]="'Please Select'"
-            [formText]="'Yes /No '"
-            [fieldName]="'yn'"
-            [trueTxt]="'Yes'"
-            [falseTxt]="'No'"
-            [parentForm]="myForm"
-            [fb]="formBuilder"
-          ></app-slide>
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <app-select
+          [prefixIcon]="'description'"
+          [fieldName]="'selectItem'"
+          [label]="'Select'"
+          [items]="selectItems"
+          [parentForm]="myForm"
+          [fb]="formBuilder"
+        >
+        </app-select>
       </div>
-      <div class="row">
-        <div class="col-sm">
-          <app-radio
-            [parentForm]="myForm"
-            [fb]="formBuilder"
-            [fieldName]="'gender'"
-            [label]="'Gender'"
-            [options]="[
-              { label: 'Male', value: 0 },
-              { label: 'Female', value: 1 }
-            ]"
-          >
-          </app-radio>
-        </div>
-        <div class="col-sm">
-          <app-auto-complete
-            [fieldName]="'autoSelectItem2'"
-            [label]="'Remote Select'"
-            [items]="items2"
-            [parentForm]="myForm"
-            [fb]="formBuilder"
-            [validations]="autoVals"
-            (outputEvent)="getOutput($event)"
-            [url]="'/api/lov'"
-          >
-          </app-auto-complete>
-        </div>
-        <div class="col-sm">
-          <app-auto-complete
-            [fieldName]="'autoSelectItem'"
-            [label]="'Local Select'"
-            [parentForm]="myForm"
-            [fb]="formBuilder"
-            [validations]="autoVals"
-            (outputEvent)="getOutput($event)"
-            [localSearch]="true"
-            [items]="items2"
-            #ac1
-          >
-          </app-auto-complete>
-        </div>
+      <div class="col-sm">
+        <app-date-input
+          [prefixIcon]="'calendar_today'"
+          [parentForm]="myForm"
+          [label]="'Date'"
+          [placeHolder]="'Enter Date'"
+          [fieldName]="'dateInput'"
+          [validations]=""
+          [fb]="formBuilder"
+        >
+        </app-date-input>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <app-select
+          [fieldName]="'multiSelectItem'"
+          [label]="'Multi-Select'"
+          [items]="selectItems"
+          [parentForm]="myForm"
+          [fb]="formBuilder"
+          [multiple]="true"
+          #sel1
+        >
+        </app-select>
+      </div>
+      <div class="col-sm">
+        <app-slide
+          [label]="'Please Select'"
+          [formText]="'Yes /No '"
+          [fieldName]="'yn'"
+          [trueTxt]="'Yes'"
+          [falseTxt]="'No'"
+          [parentForm]="myForm"
+          [fb]="formBuilder"
+        ></app-slide>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <app-radio
+          [parentForm]="myForm"
+          [fb]="formBuilder"
+          [fieldName]="'gender'"
+          [label]="'Gender'"
+          [options]="[
+            { label: 'Male', value: 0 },
+            { label: 'Female', value: 1 }
+          ]"
+        >
+        </app-radio>
+      </div>
+      <div class="col-sm">
+        <app-auto-complete
+          [fieldName]="'autoSelectItem2'"
+          [label]="'Remote Select'"
+          [items]="items2"
+          [parentForm]="myForm"
+          [fb]="formBuilder"
+          [validations]="autoVals"
+          (outputEvent)="getOutput($event)"
+          [url]="'/api/lov'"
+        >
+        </app-auto-complete>
+      </div>
+      <div class="col-sm">
+        <app-auto-complete
+          [fieldName]="'autoSelectItem'"
+          [label]="'Local Select'"
+          [parentForm]="myForm"
+          [fb]="formBuilder"
+          [validations]="autoVals"
+          (outputEvent)="getOutput($event)"
+          [localSearch]="true"
+          [items]="items2"
+          #ac1
+        >
+        </app-auto-complete>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-3">
+        <app-auto-complete
+          [fieldName]="'autoSelectItem3'"
+          [label]="'Pre-Selected'"
+          [items]="items2"
+          [parentForm]="myForm"
+          [fb]="formBuilder"
+          [validations]="autoVals"
+          (outputEvent)="getOutput($event)"
+          [localSearch]="true"
+          #ac2
+        >
+        </app-auto-complete>
+      </div>
+      <div class="col-sm-3">
+        <app-check-box
+          [parentForm]="myForm"
+          [fieldName]="'tnc'"
+          [label]="'Terms & Conditions'"
+          [validations]="checkBoxVals"
+        ></app-check-box>
+      </div>
+      <div class="col-sm-2">
+        <info-box
+          [boxType]="1"
+          [icon]="'email'"
+          [message]="'Inbox'"
+          [value]="'10'"
+        ></info-box>
+      </div>
+      <div class="col-sm-2">
+        <info-box
+          [boxType]="2"
+          [icon]="'email'"
+          [color]="'blue'"
+          [message]="'Inbox'"
+          [value]="'10'"
+        >
+        </info-box>
+      </div>
+      <div class="col-sm-2">
+        <info-box
+          [boxType]="3"
+          [icon]="'email'"
+          [color]="'green'"
+          [message]="'Inbox'"
+          [value]="'10'"
+        >
+        </info-box>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-5">
+        <fileupload
+          [parentForm]="myForm"
+          [label]="'Passport '"
+          [placeHolder]="'Passport'"
+          [maxFileSizeMb]="1"
+          [allowedFileTypes]="['pdf']"
+          [fieldName]="'uploadDoc'"
+          [fb]="formBuilder"
+          (dataEmitter)="fileUpload($event)"
+          [dndType]="true"
+          [validations]="uploadValidations"
+          [labelPos]="'T'"
+        >
+        </fileupload>
       </div>
 
-      <div class="row">
-        <div class="col-sm-3">
-          <app-auto-complete
-            [fieldName]="'autoSelectItem3'"
-            [label]="'Pre-Selected'"
-            [items]="items2"
-            [parentForm]="myForm"
-            [fb]="formBuilder"
-            [validations]="autoVals"
-            (outputEvent)="getOutput($event)"
-            [localSearch]="true"
-            #ac2
-          >
-          </app-auto-complete>
-        </div>
-        <div class="col-sm-3">
-          <app-check-box
-            [parentForm]="myForm"
-            [fieldName]="'tnc'"
-            [label]="'Terms & Conditions'"
-            [validations]="checkBoxVals"
-          ></app-check-box>
-        </div>
-        <div class="col-sm-2">
-          <info-box
-            [boxType]="1"
-            [icon]="'email'"
-            [message]="'Inbox'"
-            [value]="'10'"
-          ></info-box>
-        </div>
-        <div class="col-sm-2">
-          <info-box
-            [boxType]="2"
-            [icon]="'email'"
-            [color]="'blue'"
-            [message]="'Inbox'"
-            [value]="'10'"
-          >
-          </info-box>
-        </div>
-        <div class="col-sm-2">
-          <info-box
-            [boxType]="3"
-            [icon]="'email'"
-            [color]="'green'"
-            [message]="'Inbox'"
-            [value]="'10'"
-          >
-          </info-box>
-        </div>
+      <div class="col-sm-4">
+        <fileupload
+          [parentForm]="myForm"
+          [label]="'Passport '"
+          [placeHolder]="'Passport'"
+          [maxFileSizeMb]="1"
+          [allowedFileTypes]="['png', 'txt', 'pdf', 'csv', 'xls']"
+          [fieldName]="'uploadDoc'"
+          [fb]="formBuilder"
+          (dataEmitter)="fileUpload($event)"
+          [dndType]="true"
+          [validations]="uploadValidations"
+          [defaultLoaded]="true"
+          [defaultFileName]="'A long file name from The server.txt'"
+          [labelPos]="'T'"
+        ></fileupload>
       </div>
-
-      <div class="row">
-        <div class="col-sm-5">
-          <fileupload
-            [parentForm]="myForm"
-            [label]="'Passport '"
-            [placeHolder]="'Passport'"
-            [maxFileSizeMb]="1"
-            [allowedFileTypes]="['pdf']"
-            [fieldName]="'uploadDoc'"
-            [fb]="formBuilder"
-            (dataEmitter)="fileUpload($event)"
-            [dndType]="true"
-            [validations]="uploadValidations"
-            [labelPos]="'B'"
-          >
-          </fileupload>
-        </div>
-
-        <div class="col-sm-4">
-          <fileupload
-            [parentForm]="myForm"
-            [label]="'Passport '"
-            [placeHolder]="'Passport'"
-            [maxFileSizeMb]="1"
-            [allowedFileTypes]="['png', 'txt', 'pdf', 'csv', 'xls']"
-            [fieldName]="'uploadDoc'"
-            [fb]="formBuilder"
-            (dataEmitter)="fileUpload($event)"
-            [dndType]="true"
-            [validations]="uploadValidations"
-            [defaultLoaded]="true"
-            [defaultFileName]="'A long file name from The server.txt'"
-            [labelPos]="'B'"
-          ></fileupload>
-        </div>
-      </div>
-      <!-- <div class="row ">
+    </div>
+    <!-- <div class="row ">
         <div class="col-sm">
           <app-data-table
             [tableDefn]="tableDfn"
@@ -225,102 +224,100 @@
           ></app-data-table>
         </div>
       </div> -->
-      <div class="row">
-        <div class="col-sm-3">
-          <app-text-input
-            [toolTip]="'My Tool Tip'"
-            [prefixIcon]="'description'"
-            [parentForm]="myForm"
-            [label]="'Txt Field'"
-            [placeHolder]="'Txt field'"
-            [showIcon]="false"
-            [fieldName]="'txtField'"
-            [fieldType]="'text'"
-            [fb]="formBuilder"
-          ></app-text-input>
-        </div>
-        <div class="col-sm-3">
-          <static-field
-            [value]="
-              'ReadOnly Very long text how are you i am fie how do you do'
-            "
-            [label]="'FName'"
-            [showIcon]="false"
-          >
-          </static-field>
-        </div>
-        <div class="col-sm-3">
-          <static-field
-            [value]="'ReadOnly'"
-            [label]="'main.address'"
-            [hyperLink]="true"
-            [hyperLinkId]="'11'"
-            (dataEmitter)="sClick($event)"
-          ></static-field>
-        </div>
-        <div class="col-sm-3">
-          <static-field [label]="'main.address'"> </static-field>
-        </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <app-text-input
+          [toolTip]="'My Tool Tip'"
+          [prefixIcon]="'description'"
+          [parentForm]="myForm"
+          [label]="'Txt Field'"
+          [placeHolder]="'Txt field'"
+          [showIcon]="false"
+          [fieldName]="'txtField'"
+          [fieldType]="'text'"
+          [fb]="formBuilder"
+        ></app-text-input>
       </div>
-      <div class="row">
-        <div class="col-sm">
-          <static-field [label]="'main.address'" [value]="'Some Text'">
-          </static-field>
-        </div>
+      <div class="col-sm-3">
+        <static-field
+          [value]="'ReadOnly Very long text how are you i am fie how do you do'"
+          [label]="'FName'"
+          [showIcon]="false"
+        >
+        </static-field>
       </div>
+      <div class="col-sm-3">
+        <static-field
+          [value]="'ReadOnly'"
+          [label]="'main.address'"
+          [hyperLink]="true"
+          [hyperLinkId]="'11'"
+          (dataEmitter)="sClick($event)"
+        ></static-field>
+      </div>
+      <div class="col-sm-3">
+        <static-field [label]="'main.address'"> </static-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <static-field [label]="'main.address'" [value]="'Some Text'">
+        </static-field>
+      </div>
+    </div>
 
-      <div class="row">
-        <div class="col-sm-3">
-          <app-textarea
-            [parentForm]="myForm"
-            [label]="'main.address'"
-            [placeHolder]="'Address'"
-            [fieldName]="'address'"
-            [fieldType]="'text'"
-            [validations]="firstNameValidations"
-            [fb]="formBuilder"
-          >
-          </app-textarea>
-        </div>
-        <div class="col-sm-4">
-          <tel-number
-            [parentForm]="myForm"
-            [label]="'main.tel'"
-            [placeHolder]="'TelePhone'"
-            [fieldName]="'telephone'"
-            [fieldType]="'text'"
-            [validations]="telValidations"
-            [fb]="formBuilder"
-            [helpTxt]="'Use Format 971-xx-xxxxxxx'"
-            #tel
-          ></tel-number>
-        </div>
-        <div class="col-sm-4">
-          <date-time
-            [parentForm]="myForm"
-            [label]="'Date Time'"
-            [placeHolder]="'Enter Date'"
-            [fieldName]="'dateTimeInput'"
-            [validations]="firstNameValidations"
-            [fb]="formBuilder"
-            [defaulDTM]="true"
-          >
-          </date-time>
-        </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <app-textarea
+          [parentForm]="myForm"
+          [label]="'main.address'"
+          [placeHolder]="'Address'"
+          [fieldName]="'address'"
+          [fieldType]="'text'"
+          [validations]="firstNameValidations"
+          [fb]="formBuilder"
+        >
+        </app-textarea>
       </div>
-      <div class="row">
-        <div class="col">
-          <app-normal-table
-            [tableDefn]="normalTableDefn"
-            [other]="true"
-            (clickEvent)="delNormalTable($event)"
-            [checkBoxEnabled]="true"
-            [delete]="true"
-          >
-          </app-normal-table>
-        </div>
+      <div class="col-sm-4">
+        <tel-number
+          [parentForm]="myForm"
+          [label]="'main.tel'"
+          [placeHolder]="'TelePhone'"
+          [fieldName]="'telephone'"
+          [fieldType]="'text'"
+          [validations]="telValidations"
+          [fb]="formBuilder"
+          [helpTxt]="'Use Format 971-xx-xxxxxxx'"
+          #tel
+        ></tel-number>
       </div>
-      <!-- <div class="row ">
+      <div class="col-sm-4">
+        <date-time
+          [parentForm]="myForm"
+          [label]="'Date Time'"
+          [placeHolder]="'Enter Date'"
+          [fieldName]="'dateTimeInput'"
+          [validations]="firstNameValidations"
+          [fb]="formBuilder"
+          [defaulDTM]="true"
+        >
+        </date-time>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <app-normal-table
+          [tableDefn]="normalTableDefn"
+          [other]="true"
+          (clickEvent)="delNormalTable($event)"
+          [checkBoxEnabled]="true"
+          [delete]="true"
+        >
+        </app-normal-table>
+      </div>
+    </div>
+    <!-- <div class="row ">
         <div class="dt-table-style">
           <table class="table-bordered mat-elevation-z8">
             <thead>
@@ -372,74 +369,73 @@
           </table>
         </div>
       </div> -->
-      <div class="row">
-        <div class="d-flex justify-content-evenly">
-          <app-button
-            [buttonName]="'common.reset'"
-            [icon]="'undo'"
-            (clickEvent)="reset()"
-            [btnCategory]="2"
-            [iconButton]="true"
-          >
-          </app-button>
-          <app-button
-            [clickCount]="clickCount"
-            [buttonType]="'Submit'"
-            [buttonName]="'common.submit'"
-            (clickEvent)="onSubmit($event)"
-          ></app-button>
-          <app-button
-            [buttonType]="'Submit'"
-            [buttonName]="'external'"
-            (clickEvent)="onSubmitExt($event)"
-          >
-          </app-button>
-          <app-button
-            [buttonType]="'button'"
-            [buttonName]="'Table Reload'"
-            (clickEvent)="reloadDataTable($event)"
-          >
-          </app-button>
-          <app-button
-            [buttonName]="'main.alert'"
-            (clickEvent)="openAlert()"
-          ></app-button>
-          <app-button
-            [buttonName]="'main.confirm'"
-            (clickEvent)="openConfirm()"
-          ></app-button>
-          <app-button
-            [buttonName]="'Text Row Data'"
-            (clickEvent)="addRow()"
-          ></app-button>
-          <app-button
-            [buttonName]="'Normal Table'"
-            (clickEvent)="addTableRow()"
-          ></app-button>
+    <div class="row">
+      <div class="d-flex justify-content-evenly">
+        <app-button
+          [buttonName]="'common.reset'"
+          [icon]="'undo'"
+          (clickEvent)="reset()"
+          [btnCategory]="2"
+          [iconButton]="true"
+        >
+        </app-button>
+        <app-button
+          [clickCount]="clickCount"
+          [buttonType]="'Submit'"
+          [buttonName]="'common.submit'"
+          (clickEvent)="onSubmit($event)"
+        ></app-button>
+        <app-button
+          [buttonType]="'Submit'"
+          [buttonName]="'external'"
+          (clickEvent)="onSubmitExt($event)"
+        >
+        </app-button>
+        <app-button
+          [buttonType]="'button'"
+          [buttonName]="'Table Reload'"
+          (clickEvent)="reloadDataTable($event)"
+        >
+        </app-button>
+        <app-button
+          [buttonName]="'main.alert'"
+          (clickEvent)="openAlert()"
+        ></app-button>
+        <app-button
+          [buttonName]="'main.confirm'"
+          (clickEvent)="openConfirm()"
+        ></app-button>
+        <app-button
+          [buttonName]="'Text Row Data'"
+          (clickEvent)="addRow()"
+        ></app-button>
+        <app-button
+          [buttonName]="'Normal Table'"
+          (clickEvent)="addTableRow()"
+        ></app-button>
 
-          <app-button
-            [buttonName]="'Select'"
-            [icon]="'send'"
-            (clickEvent)="refreshSelectItems()"
-          >
-          </app-button>
-        </div>
+        <app-button
+          [buttonName]="'Select'"
+          [icon]="'send'"
+          (clickEvent)="refreshSelectItems()"
+        >
+        </app-button>
       </div>
-      <div class="row">
-        <div class="col-sm">
-          <app-data-table
-            (clickEvent)="dataTableClick($event)"
-            [url]="'/api/records/'"
-            [tableDefn]="tableDfn"
-            [pageSize]="10"
-            [local]="false"
-            [noRecordsMessage]="'Cannot Find data'"
-            [actionable]="true"
-            [rowActions]="rowActions"
-          >
-          </app-data-table>
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <app-data-table
+          (clickEvent)="dataTableClick($event)"
+          [url]="'/api/records/'"
+          [tableDefn]="tableDfn"
+          [pageSize]="10"
+          [local]="false"
+          [noRecordsMessage]="'Cannot Find data'"
+          [actionable]="true"
+          [rowActions]="rowActions"
+        >
+        </app-data-table>
       </div>
-    </form>
-  </app-card>
-</div>
+    </div>
+  </form>
+</app-page>

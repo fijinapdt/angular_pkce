@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PageHeaderService } from '../../service/page-header.service';
 import { Subscription } from 'rxjs';
 
@@ -8,21 +8,22 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./page-header.component.scss'],
 })
 export class PageHeaderComponent implements OnInit {
-  headerName: string = '';
+  // headerName: string = '';
   subscription: Subscription;
+  @Input() pageHeader: string;
 
   constructor(private _pageHeaderService: PageHeaderService) {
     this.subscription = this._pageHeaderService
       .getHeader()
       .subscribe((msg: any) => {
-        this.headerName = msg;
+        this.pageHeader = msg;
       });
   }
 
   ngOnInit() {}
 
   getHeaderName() {
-    console.log('header ' + this.headerName);
-    return this.headerName;
+    // console.log('header ' + this.headerName);
+    return this.pageHeader;
   }
 }

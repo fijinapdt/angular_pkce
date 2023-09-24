@@ -10,6 +10,7 @@ import {
   animateChild,
   state,
 } from '@angular/animations';
+import { PageHeaderService } from './lib/service/page-header.service';
 
 @Component({
   selector: 'app-root',
@@ -34,8 +35,12 @@ import {
 })
 export class AppComponent {
   title = 'dt-app3';
-  constructor(private injector: Injector) {
+  constructor(
+    private injector: Injector,
+    private _pageheaderService: PageHeaderService
+  ) {
     AppInjector.setInjector(injector);
+    this._pageheaderService.clearHeader();
   }
   phoneNumber: any = '';
 }

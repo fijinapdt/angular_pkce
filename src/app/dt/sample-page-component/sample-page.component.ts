@@ -75,7 +75,7 @@ export class SamplePageComponent extends BaseComponent implements OnInit {
       sort: true,
     },
     {
-      displayName: 'Sample COlumn',
+      displayName: 'Sample Long Column Name',
       mappingName: 'name',
       type: TableType.string,
       sort: true,
@@ -150,10 +150,9 @@ export class SamplePageComponent extends BaseComponent implements OnInit {
       this.ctr = 0;
     }
   }
-  constructor(private _cd: ChangeDetectorRef, private _route: ActivatedRoute) {
+  constructor(private _route: ActivatedRoute) {
     super();
-    this.chageDetectorRef = _cd;
-    this._pageHeaderService.updateHeader('Second Page');
+    this._pageHeaderService.updateHeader('Page header');
   }
 
   sClick($event: any) {

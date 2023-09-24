@@ -1,48 +1,14 @@
-<!-- <div [class]="css">
-  <p class="heading">{{ title }}</p>
-  <span class="close-icon" (click)="cancelClicked()">
-    <mat-icon class="white-background no-border">close</mat-icon>
-  </span>
-</div>
-<div
-  class="dialog-content"
-  [ngClass]="getScrollable()"
-  [style.max-height.px]="getMaxHeight()"
->
-  <ng-content></ng-content>
-</div>
-<ng-container *ngIf="actionButtons">
-  <div class="dialog-bottom button-holder">
-    <app-button
-      *ngIf="ok"
-      [buttonType]="'button'"
-      [buttonName]="getokTxt()"
-      (clickEvent)="okClicked()"
-      [icon]="'send'"
-    ></app-button>
-    <app-button
-      *ngIf="cancel"
-      [buttonType]="'button'"
-      [buttonName]="getCancelTxt()"
-      (clickEvent)="cancelClicked()"
-      [icon]="'clear'"
-    ></app-button>
-  </div>
-</ng-container> -->
 <div class="dialog-box">
-  <div class="dialog-title" [ngClass]="css" mat-dialog-title>
+  <div [ngClass]="css" class="dialog-header">
     <mat-icon class="dialog-close-icon" (click)="cancelClicked()"
       >close</mat-icon
     >
-    <div class="error-dialog">{{ title }}</div>
-    <!-- <div class="info-dialog" *ng-if="dialogType == 3">{{ title }}</div>
-    <div class="warn-dialog" *ng-if="dialogType == 2">{{ title }}</div>
-    <div class="normal-dialog" *ng-if="dialogType == 1">{{ title }}</div> -->
+    <div class="title">{{ title }}</div>
   </div>
   <mat-dialog-content class="mat-typography">
     <ng-content></ng-content>
   </mat-dialog-content>
-  <mat-dialog-actions align="center">
+  <mat-dialog-actions [align]="'center'">
     <div class="dialog-button">
       <app-button
         *ngIf="ok"

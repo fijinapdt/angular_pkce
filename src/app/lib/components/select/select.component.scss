@@ -1,21 +1,21 @@
+@import "colors";
 .select-div {
-  background-color: #6e6f904a;
+  background-color: $background;
   height: 50px;
   padding: 10px;
   display: flex;
 }
 .select-input-text {
   height: 30px;
-  background-color: #ffff;
+  background-color: $white;
   padding: 10px;
 }
 .selec-chx {
   width: 10%;
-  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .selec-txt {
   width: 90%;
-}
-mat-form-field {
-  width: 100%;
 }

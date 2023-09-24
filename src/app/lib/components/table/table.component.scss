@@ -1,11 +1,11 @@
+@import "colors";
 .table-wrapper {
   .table-wrapper-inner {
-    // max-height: 400px;
-    overflow-x: auto;
+    overflow: auto;
   }
   width: 100%;
   margin: auto;
-  overflow-x: auto;
+  overflow: auto;
   margin-top: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 
@@ -29,15 +29,13 @@
   width: 100%;
   table-layout: fixed;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  background-color: #e4e4e426;
   thead {
-    // background-color: #696f83;
-    color: #ffff;
+    color: $white;
 
     tr {
       position: sticky;
       top: 0;
-      background-color: #696f83;
+      background-color: $tableheader;
 
       th {
         .th-colum-txt {
@@ -61,10 +59,6 @@
             .mat-down {
               position: absolute;
               top: 10px;
-            }
-
-            .sort-clicked {
-              background-color: red;
             }
           }
           .table-sort-icon {
@@ -102,25 +96,7 @@
         .cell-content {
           color: #0e1b3d;
           font-weight: 400;
-
-          .error {
-            padding: 5px 10px 5px 10px;
-            border-style: solid;
-            color: red;
-            border-color: #be0f0f;
-          }
-          .warn {
-            padding: 5px 10px 5px 10px;
-            border-style: solid;
-            border-color: #f59a10;
-            color: #f59a10;
-          }
-          .info {
-            padding: 5px 10px 5px 10px;
-            border-style: solid;
-            border-color: #14c9a9;
-            color: #14c9a9;
-          }
+          overflow-wrap: break-word;
         }
       }
     }

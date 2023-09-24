@@ -1,3 +1,4 @@
+@import "colors";
 .notfn-bar {
   display: flex;
   .notfn-icon {
@@ -22,10 +23,10 @@
     }
   }
   .alert-success {
-    color: #155724;
+    color: $success-txt;
   }
   .alert-danger {
-    color: #721c24;
+    color: $danger-txt;
   }
 }
 

@@ -47,9 +47,9 @@ export class DialogComponent implements OnInit {
 
     console.log(this.dialogType);
     if (this.dialogType === Constants.ALERT_BOX) {
-      this.css = 'dialog-header alert';
+      this.css = 'dialog-alert';
     } else {
-      this.css = 'dialog-header classic';
+      this.css = 'dialog-classic';
     }
   }
 

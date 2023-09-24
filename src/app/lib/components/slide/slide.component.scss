@@ -22,3 +22,13 @@ mat-label.static-label {
 ::ng-deep mdc-switch mdc-switch--unselected {
   background-color: #b5bfd8;
 }
+
+mat-slide-toggle {
+  ::ng-deep .mdc-switch__icons {
+    svg {
+      display: none !important;
+    }
+    background-color: #ffff;
+    border-radius: 360px;
+  }
+}

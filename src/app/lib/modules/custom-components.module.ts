@@ -58,6 +58,7 @@ import {
   MomentDateAdapter,
 } from '@angular/material-moment-adapter';
 import { PhoneNumberDirective } from '../directive/phone-number.directive';
+import { PageComponent } from '../components/page/page.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { PhoneNumberDirective } from '../directive/phone-number.directive';
     FormErrorComponent,
     SlideComponent,
     NormalTableComponent,
+    PageComponent,
     // BreadCrumbComponent,
     SanitizeHtmlPipe,
     ActionDialogComponent,
@@ -168,6 +170,7 @@ import { PhoneNumberDirective } from '../directive/phone-number.directive';
     DateTimeComponent,
     BreadcrumbComponent,
     CloseComponent,
+    PageComponent,
   ],
 })
 export class CommonLibModule {}

@@ -1,6 +1,6 @@
-<ng-container *ngIf="headerName.length > 0">
-  <section class="page-header">
-    <div class="page-header-name">{{ headerName }}</div>
-    <div class="page-header-under-line"></div>
-  </section>
+<ng-container *ngIf="pageHeader.length > 0">
+  <div class="page-header">
+    <div class="page-header-name">{{ pageHeader | translate }}</div>
+    <!-- <div class="page-header-under-line"></div> -->
+  </div>
 </ng-container>
