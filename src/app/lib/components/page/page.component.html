@@ -1,5 +1,10 @@
 <div class="container page">
-  <div><page-header [pageHeader]="'Page Header'"></page-header></div>
+  <div>
+    <page-header [pageHeader]="pageHeader"></page-header>
+  </div>
+  <div>
+    <notification-bar></notification-bar>
+  </div>
   <div>
     <ng-content></ng-content>
   </div>

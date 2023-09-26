@@ -385,6 +385,7 @@ export class SamplePageComponent extends BaseComponent implements OnInit {
     console.log(event);
     console.log('Valid?', this.myForm.valid); // true or false
     console.log('Value', this.myForm.value);
+    super.validateForm(this.myForm);
     const notfnMessage: NotificationMessage = {
       text: 'Click <a href="#" >Here</a>',
       type: MessageStatus.success,
@@ -394,8 +395,6 @@ export class SamplePageComponent extends BaseComponent implements OnInit {
     notfnMessages.push(notfnMessage);
     this.notfnService.updateMessage(notfnMessages);
     // this.clickCount = this.clickCount + 1;
-
-    // // super.validateForm(this.myForm);
 
     // const navextras: NavigationExtras = {
     //   queryParams: { 'data': JSON.stringify('') }
