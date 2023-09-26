@@ -46,7 +46,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   @Input() pagination!: boolean;
   @Input() loadByDefault = false;
   @Input() checked = false;
-  @Input() actionable = false;
+  @Input() actionable: number;
   @Input() edit = false;
   @Input() view = false;
   @Input() other = false;
@@ -66,6 +66,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   @Output() clickEvent = new EventEmitter();
   @Output() countEvent = new EventEmitter();
   public TableType = TableType;
+  public TableAction = TableAction;
   @ViewChild('paginator') paginator?: MatPaginator;
 
   @ViewChild('tableTh') thHeight?: ElementRef;

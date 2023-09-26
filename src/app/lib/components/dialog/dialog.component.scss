@@ -4,7 +4,8 @@
   position: relative;
   .dialog-close-icon {
     position: absolute;
-    top: 5px;
+    top: 50%;
+    transform: translateY(-50%);
     right: 5px;
     &:hover {
       cursor: pointer;
@@ -15,6 +16,7 @@
     background-color: $dialogheader;
     display: flex;
     padding: 20px;
+    position: relative;
     .dialog-close-icon {
       color: $white;
     }

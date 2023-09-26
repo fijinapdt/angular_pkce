@@ -39,6 +39,8 @@ export class SamplePageComponent extends BaseComponent implements OnInit {
   checkBoxConfig!: FieldConfig;
   test!: string;
   clickCount = 0;
+  public TableAction = TableAction;
+
   @ViewChild(TableComponent) dataTable!: TableComponent;
   @ViewChild('ac1') autoComplete!: AutoCompleteComponent;
   @ViewChild('ac2') autoComplete2!: AutoCompleteComponent;
@@ -73,6 +75,7 @@ export class SamplePageComponent extends BaseComponent implements OnInit {
       mappingName: 'id',
       type: TableType.number,
       sort: true,
+      width: 8,
     },
     {
       displayName: 'Sample Long Column Name',
@@ -92,7 +95,7 @@ export class SamplePageComponent extends BaseComponent implements OnInit {
       type: TableType.string,
       sort: true,
     },
-    { displayName: 'html', isHtml: true, mappingName: 'html' },
+    { displayName: 'html', isHtml: true, mappingName: 'html', width: 10 },
 
     {
       displayName: '',
@@ -108,11 +111,13 @@ export class SamplePageComponent extends BaseComponent implements OnInit {
       toolTip: 'edit',
       icon: 'view_headline',
       iconColor: 'blue',
+      iconText: 'edit',
     },
     {
       action: TableAction.delete,
       fnName: 'delete',
       toolTip: 'delete',
+      iconText: 'delete',
       icon: 'delete',
       iconColor: 'red',
     },

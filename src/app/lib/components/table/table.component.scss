@@ -42,7 +42,9 @@
           display: flex;
           padding: 10px;
           align-items: center;
-          word-break: break-all;
+          overflow-wrap: break-word;
+          text-transform: capitalize;
+
           // justify-content: center;
           .sort-icons {
             position: relative;
@@ -62,13 +64,11 @@
             }
           }
           .table-sort-icon {
-            /* Default styles for the icons */
             opacity: 0.5;
             transition: opacity 0.3s ease;
           }
 
           .table-sort-icon.emphasized {
-            /* Emphasized style */
             opacity: 1;
           }
         }
@@ -83,6 +83,7 @@
           0px 10px 20px 0px rgba(152, 162, 179, 0.15);
         background-color: #efefef;
       }
+
       td {
         padding: 15px 10px 15px 10px;
         .action-icon {
@@ -97,6 +98,30 @@
           color: #0e1b3d;
           font-weight: 400;
           overflow-wrap: break-word;
+        }
+        .action_text {
+          margin-left: 5px;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+        .error {
+          color: $danger;
+          border-style: solid;
+          border-width: 1px;
+          padding: 2px 5px 2px 5px;
+        }
+
+        .info {
+          color: $success;
+          border-style: solid;
+          border-width: 1px;
+          padding: 2px 5px 2px 5px;
+        }
+        .warn {
+          color: $warning;
+          border-style: solid;
+          border-width: 1px;
+          padding: 2px 5px 2px 5px;
         }
       }
     }
@@ -115,9 +140,9 @@
       padding: 0px !important;
     }
     td {
-      display: block; /* Stack tds vertically */
+      display: block;
       position: relative;
-      padding-top: 0px !important; /* Make space for the pseudo element */
+      padding-top: 0px !important;
       padding-bottom: 10px !important;
       padding-right: 0px !important;
       padding-left: 50% !important;
@@ -129,7 +154,7 @@
       width: 45%;
       padding-right: 10px;
       white-space: nowrap;
-      content: attr(data-label); /* Use a data-label attribute for the label */
+      content: attr(data-label);
       display: block;
       text-align: right;
       border-right: 1px solid #ddd;

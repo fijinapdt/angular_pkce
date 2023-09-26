@@ -1,5 +1,6 @@
 <div class="table-wrapper" id="{{ tableId }}">
   <div
+    *ngIf="tableDS && tableDS.length > 0"
     class="table-wrapper-inner"
     [style]="{ 'max-height': tableHeight + 'px' }"
   >

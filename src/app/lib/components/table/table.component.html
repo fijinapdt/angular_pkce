@@ -1,98 +1,105 @@
-<div class="table-wrapper" *ngIf="dataGrid" id="{{ tableId }}">
-  <div
-    class="table-wrapper-inner"
-    [style]="{ 'max-height': tableHeight + 'px' }"
-  >
-    <div class="overlay" *ngIf="loading"></div>
-    <div class="error-txt" *ngIf="error">{{ error_txt }}</div>
-    <mat-spinner *ngIf="loading" diameter="40"></mat-spinner>
-    <table class="dt-table">
-      <thead>
-        <tr>
-          <th
-            *ngFor="let tb of tableDefn; let i = index"
-            [style.width.%]="tb.width"
-          >
-            <div class="th-colum-txt">
-              <span> {{ tb.displayName }} </span>
-              <ng-container *ngIf="tb.sort">
-                <span class="sort-icons">
-                  <mat-icon
-                    [ngClass]="{ emphasized: emphasizedArrow[i] === 'up' }"
-                    class="table-sort-icon mat-up"
-                    (click)="emphasizeArrow(i, 'up')"
-                  >
-                    arrow_drop_up
-                  </mat-icon>
-
-                  <mat-icon
-                    [ngClass]="{ emphasized: emphasizedArrow[i] === 'down' }"
-                    class="table-sort-icon mat-down"
-                    (click)="emphasizeArrow(i, 'down')"
-                  >
-                    arrow_drop_down
-                  </mat-icon>
-                </span>
-              </ng-container>
-            </div>
-          </th>
-        </tr>
-      </thead>
-      <tbody *ngIf="tableDS && tableDS.length > 0">
-        <tr *ngFor="let tb of loopArray(tableDS.length); let i = index">
-          <ng-container *ngFor="let dfn of tableDefn; let j = index">
-            <td [attr.data-label]="dfn.displayName">
-              <ng-container *ngIf="dfn.isHtml">
-                <span
-                  [innerHTML]="getColumnData(i, j)"
-                  class="cell-content"
-                ></span>
-              </ng-container>
-              <ng-container *ngIf="!dfn.isHtml">
-                <span class="cell-content">{{ getColumnData(i, j) }}</span>
-              </ng-container>
-              <ng-container
-                *ngIf="
-                  actionable && validRow(i) && dfn.type == TableType.action
-                "
-              >
-                <ng-container *ngFor="let actn of rowActions; let k = index">
-                  <span
-                    matTooltip="{{ actn.toolTip }}"
-                    [matTooltipPosition]="'above'"
-                  >
+<ng-container *ngIf="tableDS && tableDS.length > 0">
+  <div class="table-wrapper" *ngIf="dataGrid" id="{{ tableId }}">
+    <div
+      class="table-wrapper-inner"
+      [style]="{ 'max-height': tableHeight + 'px' }"
+    >
+      <div class="overlay" *ngIf="loading"></div>
+      <div class="error-txt" *ngIf="error">{{ error_txt }}</div>
+      <mat-spinner *ngIf="loading" diameter="40"></mat-spinner>
+      <table class="dt-table">
+        <thead>
+          <tr>
+            <th
+              *ngFor="let tb of tableDefn; let i = index"
+              [style.width.%]="tb.width"
+            >
+              <div class="th-colum-txt">
+                <span> {{ tb.displayName }} </span>
+                <ng-container *ngIf="tb.sort">
+                  <span class="sort-icons">
                     <mat-icon
-                      class="no-border action-icon"
-                      (click)="tableClick(tableDS[i], actn.action)"
-                      [style.color]="actn.iconColor"
-                      >{{ actn.icon }}</mat-icon
+                      [ngClass]="{ emphasized: emphasizedArrow[i] === 'up' }"
+                      class="table-sort-icon mat-up"
+                      (click)="emphasizeArrow(i, 'up')"
                     >
+                      arrow_drop_up
+                    </mat-icon>
+
+                    <mat-icon
+                      [ngClass]="{ emphasized: emphasizedArrow[i] === 'down' }"
+                      class="table-sort-icon mat-down"
+                      (click)="emphasizeArrow(i, 'down')"
+                    >
+                      arrow_drop_down
+                    </mat-icon>
                   </span>
                 </ng-container>
-              </ng-container>
-            </td>
-          </ng-container>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="paginator">
-    <ng-container *ngIf="tableDS && tableDS.length > 0">
-      <span *ngIf="show_del_button"
-        ><input type="button" value="delete"
-      /></span>
-      <!-- <span>Showing {{pageStart}} to {{pageEnd}} of {{total}} records</span>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngIf="tableDS && tableDS.length > 0">
+          <tr *ngFor="let tb of loopArray(tableDS.length); let i = index">
+            <ng-container *ngFor="let dfn of tableDefn; let j = index">
+              <td [attr.data-label]="dfn.displayName">
+                <ng-container *ngIf="dfn.isHtml">
+                  <span
+                    [innerHTML]="getColumnData(i, j)"
+                    class="cell-content"
+                  ></span>
+                </ng-container>
+                <ng-container *ngIf="!dfn.isHtml">
+                  <span class="cell-content">{{ getColumnData(i, j) }}</span>
+                </ng-container>
+                <ng-container
+                  *ngIf="validRow(i) && dfn.type == TableType.action"
+                >
+                  <ng-container *ngFor="let actn of rowActions; let k = index">
+                    <span
+                      matTooltip="{{ actn.toolTip }}"
+                      [matTooltipPosition]="'above'"
+                    >
+                      <mat-icon
+                        *ngIf="actionable == TableAction.actionicon"
+                        class="no-border action-icon"
+                        (click)="tableClick(tableDS[i], actn.action)"
+                        [style.color]="actn.iconColor"
+                        >{{ actn.icon }}</mat-icon
+                      >
+                      <span
+                        class="action_text"
+                        (click)="tableClick(tableDS[i], actn.action)"
+                        *ngIf="actionable == TableAction.actiontext"
+                        >{{ actn.iconText }}</span
+                      >
+                    </span>
+                  </ng-container>
+                </ng-container>
+              </td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="paginator">
+      <ng-container *ngIf="tableDS && tableDS.length > 0">
+        <span *ngIf="show_del_button"
+          ><input type="button" value="delete"
+        /></span>
+        <!-- <span>Showing {{pageStart}} to {{pageEnd}} of {{total}} records</span>
       <span>Page {{currentPage}} of {{totalPages}}</span> -->
-      <mat-paginator
-        [length]="total"
-        [pageSize]="pageSize"
-        (page)="goTo($event)"
-        #paginator
-      >
-      </mat-paginator>
-    </ng-container>
-    <ng-container *ngIf="!tableDS || tableDS.length === 0">
-      <div class="no-records-found">{{ noRecordsMessage }}</div>
-    </ng-container>
+        <mat-paginator
+          [length]="total"
+          [pageSize]="pageSize"
+          (page)="goTo($event)"
+          #paginator
+        >
+        </mat-paginator>
+      </ng-container>
+      <ng-container *ngIf="!tableDS || tableDS.length === 0">
+        <div class="no-records-found">{{ noRecordsMessage }}</div>
+      </ng-container>
+    </div>
   </div>
-</div>
+</ng-container>

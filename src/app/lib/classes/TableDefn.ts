@@ -16,6 +16,7 @@ export interface TableFunctions {
   action: TableAction;
   icon?: string;
   iconColor?: string;
+  iconText?: string;
 }
 
 export enum TableType {
@@ -35,6 +36,8 @@ export enum TableAction {
   download = 6,
   rowClick = 7,
   other = 8,
+  actionicon = 9,
+  actiontext = 10,
 }
 
 export interface TableComponentResp {
