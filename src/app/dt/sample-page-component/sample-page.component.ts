@@ -386,6 +386,11 @@ export class SamplePageComponent extends BaseComponent implements OnInit {
     console.log('Valid?', this.myForm.valid); // true or false
     console.log('Value', this.myForm.value);
     super.validateForm(this.myForm);
+    const selectedDate = this.myForm.value.dateInput;
+    const formattedDate = selectedDate.format('DD-MM-YYYY');
+    console.log(this.myForm);
+    console.log(formattedDate);
+
     const notfnMessage: NotificationMessage = {
       text: 'Click <a href="#" >Here</a>',
       type: MessageStatus.success,
