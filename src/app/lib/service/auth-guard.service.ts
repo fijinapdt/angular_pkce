@@ -10,6 +10,7 @@ import { AuthenticationService } from './authentication.service';
 export class AuthGuardService {
   constructor(
     public router: Router,
+    // private _securityInfo: SecurityInfoService
     private _authentication: AuthenticationService
   ) {}
 

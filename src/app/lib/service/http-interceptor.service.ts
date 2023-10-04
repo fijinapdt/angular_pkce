@@ -12,10 +12,12 @@ import { TranslateService } from '@ngx-translate/core';
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
   constructor(
+    // private securityInfoService: SecurityInfoService, 
     private authentication: AuthenticationService,
     private _ts: TranslateService
   ) {}
   intercept(request: HttpRequest<any>, next: HttpHandler) {
+    // const headerToken = this.securityInfoService.getToken();
     const headerToken = this.authentication.accessToken.access_token;
     //const headerToken = 'djfdjhfsjhfjsh';
 
