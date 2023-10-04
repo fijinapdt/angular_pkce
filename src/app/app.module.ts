@@ -10,6 +10,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
 import { CommonLibModule } from './lib/modules/custom-components.module';
+import { PkceService } from './lib/service/pkce.service';
+import { RandomService } from './lib/service/random.service';
+import { StateService } from './lib/service/state.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -32,7 +35,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
   ],
-  providers: [],
+  providers: [PkceService,
+    RandomService,
+    StateService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

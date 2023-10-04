@@ -15,8 +15,8 @@ export class HttpRequestInterceptor implements HttpInterceptor {
     private _ts: TranslateService
   ) {}
   intercept(request: HttpRequest<any>, next: HttpHandler) {
-    // const headerToken = this.securityInfoService.getToken();
-    const headerToken = 'djfdjhfsjhfjsh';
+    const headerToken = this.securityInfoService.accessToken.access_token;
+    //const headerToken = 'djfdjhfsjhfjsh';
 
     // console.log(this.translatorService);
     const headers = new HttpHeaders({

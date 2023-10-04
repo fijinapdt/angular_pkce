@@ -13,14 +13,19 @@ export class AuthGuardService {
   ) {}
 
   async canActivate() {
-    const loginSuccessFul: any = await this._securityInfo.login('/api/login');
-
-    if (!loginSuccessFul) {
-      this.router.navigate(['/unauthorized']);
-      // throw new Error('Unable to Login');
-      return false;
-    } else {
+    //const loginSuccessFul: any = await this._securityInfo.authenticate();
+    if (this._securityInfo.hasAccessToken) {
       return true;
+    } else {
+      this._securityInfo.authenticate();
+      return false;
     }
+    // if (!loginSuccessFul) {
+    //   this.router.navigate(['/unauthorized']);
+    //   // throw new Error('Unable to Login');
+    //   return false;
+    // } else {
+    //   return true;
+    // }
   }
 }
