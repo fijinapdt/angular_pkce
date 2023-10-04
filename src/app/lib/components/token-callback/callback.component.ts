@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, finalize, of } from 'rxjs';
 import { AuthenticateResponse } from '../../classes/authenticate-response';
-import { SecurityInfoService } from '../../service/security-info.service';
+import { AuthenticationService } from '../../service/authentication.service';
 import { ProgressLoaderService } from '../../service/progress-loader.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class CallbackComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private _securityInfoService: SecurityInfoService,
+    private _authenticationService: AuthenticationService,
     private progressLoaderService: ProgressLoaderService,
     private router: Router,
   ) {}
@@ -48,7 +48,7 @@ export class CallbackComponent implements OnInit {
 
       if (!!this.error) {
         this.errorMessage = params['error_message'];
-        this._securityInfoService.removeState(params['state']);
+        this._authenticationService.removeState(params['state']);
         return;
       }
       
@@ -60,7 +60,7 @@ export class CallbackComponent implements OnInit {
 
       this.toggleLoader(true);
 
-      this._securityInfoService
+      this._authenticationService
         .exchangeAuthenticateCode(authorizationResponse)
         .pipe(
           finalize(() => {

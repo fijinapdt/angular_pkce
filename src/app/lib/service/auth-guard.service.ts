@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { SecurityInfoService } from './security-info.service';
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,15 +10,15 @@ import { SecurityInfoService } from './security-info.service';
 export class AuthGuardService {
   constructor(
     public router: Router,
-    private _securityInfo: SecurityInfoService
+    private _authentication: AuthenticationService
   ) {}
 
   async canActivate() {
-    //const loginSuccessFul: any = await this._securityInfo.authenticate();
-    if (this._securityInfo.hasAccessToken) {
+    //const loginSuccessFul: any = await this._securityInfo.isLoggedIn();
+    if (this._authentication.hasAccessToken) {
       return true;
     } else {
-      this._securityInfo.authenticate();
+      this._authentication.authenticate();
       return false;
     }
     // if (!loginSuccessFul) {

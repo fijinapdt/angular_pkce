@@ -6,16 +6,17 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { SecurityInfoService } from './security-info.service';
+import { AuthenticationService } from './authentication.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
   constructor(
-    private securityInfoService: SecurityInfoService,
+    private authentication: AuthenticationService,
     private _ts: TranslateService
   ) {}
   intercept(request: HttpRequest<any>, next: HttpHandler) {
-    const headerToken = this.securityInfoService.accessToken.access_token;
+    const headerToken = this.authentication.accessToken.access_token;
     //const headerToken = 'djfdjhfsjhfjsh';
 
     // console.log(this.translatorService);

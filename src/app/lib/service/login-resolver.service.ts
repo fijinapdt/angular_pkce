@@ -12,7 +12,7 @@ export class LoginResolverService implements Resolve<any> {
 
   async resolve() {
     console.log('***************************STARTED********************* ');
-    const loginSuccessFul: any = false;//await this._securityInfo.login('/api/login');
+    const loginSuccessFul: any = await this._securityInfo.login('/api/login');
     if (!loginSuccessFul) {
       throw new Error('Unable to Login');
     }
