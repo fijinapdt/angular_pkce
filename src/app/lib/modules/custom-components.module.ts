@@ -59,6 +59,7 @@ import {
 } from '@angular/material-moment-adapter';
 import { PhoneNumberDirective } from '../directive/phone-number.directive';
 import { PageComponent } from '../components/page/page.component';
+import { UnauthorizedComponent } from '../components/unauthorized/unauthorized.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import { PageComponent } from '../components/page/page.component';
     DateTimeComponent,
     BreadcrumbComponent,
     CloseComponent,
+    UnauthorizedComponent,
   ],
   imports: [
     CommonModule,
@@ -172,6 +174,7 @@ import { PageComponent } from '../components/page/page.component';
     BreadcrumbComponent,
     CloseComponent,
     PageComponent,
+    UnauthorizedComponent,
   ],
 })
 export class CommonLibModule {}
